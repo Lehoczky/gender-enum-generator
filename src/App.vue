@@ -1,23 +1,29 @@
 <template>
-  <div id="app">
-    <h1>Gender Enum Generator</h1>
+  <div class="container" id="app">
+    <h1 class="title">Gender Enum Generator</h1>
 
-    <select v-model="languageName">
-      <option disabled value="">Please select one</option>
-      <option v-for="language in languageNames" :key="language">
-        {{ language }}
-      </option>
-    </select>
-
-    <template v-if="selectedLanguage">
-      <select v-model="genderGroupName">
-        <option v-for="group in genderGroupNames" :key="group">
-          {{ group }}
+    <div class="card">
+      <select v-model="selectedLanguage">
+        <option :value="null" disabled hidden>Select a language...</option>
+        <option
+          v-for="language in languages"
+          :key="language.name"
+          :value="language"
+        >
+          {{ language.name }}
         </option>
       </select>
 
+      <select v-if="selectedLanguage" v-model="selectedGroupName">
+        <option v-for="group in genderGroups" :key="group.name">
+          {{ group.name }}
+        </option>
+      </select>
+    </div>
+
+    <div v-if="selectedLanguage" class="card">
       <highlightjs :language="selectedLanguage.name" :code="code" />
-    </template>
+    </div>
   </div>
 </template>
 
@@ -29,22 +35,15 @@ export default {
   name: "App",
   data() {
     return {
-      languageName: "",
-      genderGroupName: "facebook",
+      languages,
+      genderGroups,
+      selectedLanguage: null,
+      selectedGroupName: "facebook",
     };
   },
   computed: {
-    languageNames() {
-      return languages.map(l => l.name);
-    },
-    genderGroupNames() {
-      return genderGroups.map(g => g.name);
-    },
-    selectedLanguage() {
-      return languages.find(l => l.name === this.languageName);
-    },
     gendersForSelected() {
-      return genderGroups.find(g => g.name === this.genderGroupName).genders;
+      return genderGroups.find(g => g.name === this.selectedGroupName).genders;
     },
     code() {
       return this.selectedLanguage
@@ -55,4 +54,35 @@ export default {
 };
 </script>
 
-<style></style>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+
+* {
+  margin: 0;
+}
+
+body {
+  background: #21252b;
+  color: #cbcac8;
+  font-family: "Roboto", sans-serif;
+}
+
+.container {
+  width: min(640px, 95%);
+  margin: auto;
+}
+
+.title {
+  text-align: center;
+  font-weight: 500;
+  margin: 2rem 0;
+}
+
+.card {
+  background: #282c34;
+  box-shadow: 0px 0px 3px 0px black;
+  border-radius: 2px;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+}
+</style>
