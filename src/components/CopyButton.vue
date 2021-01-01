@@ -1,10 +1,9 @@
 <template>
   <div>
-    <button @click="doCopy">
+    <button ref="cpBtn" @click="doCopy">
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
-        fill="white"
         width="24px"
         height="24px"
       >
@@ -18,17 +17,42 @@
 </template>
 
 <script>
+import tippy from "tippy.js";
+
 export default {
   props: {
     text: String,
+  },
+  data() {
+    return {
+      tooltip: null,
+    };
+  },
+  mounted() {
+    this.tooltip = this.initializeTooltip();
   },
   methods: {
     async doCopy() {
       try {
         await this.$copyText(this.text);
-      } catch (e) {
-        console.error(e);
+        this.tooltip.setContent("Copied!");
+      } catch {
+        this.tooltip.setContent("Failed to copy!");
+      } finally {
+        this.tooltip.show();
       }
+    },
+    initializeTooltip() {
+      return tippy(this.$refs.cpBtn, {
+        content: "",
+        trigger: "manual",
+        placement: "bottom",
+        onShow(instance) {
+          setTimeout(() => {
+            instance.hide();
+          }, 500);
+        },
+      });
     },
   },
 };

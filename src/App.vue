@@ -58,6 +58,7 @@ export default {
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
 @import url("./assets/select-theme.css");
+@import url("./assets/tooltip-theme.css");
 
 * {
   margin: 0;
