@@ -1,23 +1,14 @@
 <template>
   <div class="container" id="app">
-    <h1 class="title">Gender Enum Generator</h1>
+    <v-title>Gender Enum Generator</v-title>
 
     <v-card>
-      <v-select
-        v-model="selectedLanguage"
-        :options="languages"
-        :clearable="false"
-        label="name"
-        placeholder="Select a language..."
-      ></v-select>
+      <language-select v-model="selectedLanguage"> </language-select>
 
-      <v-select
+      <gender-select
         v-if="selectedLanguage"
         v-model="selectedGroup"
-        :options="genderGroups"
-        :clearable="false"
-        label="name"
-      ></v-select>
+      ></gender-select>
     </v-card>
 
     <v-card v-if="selectedLanguage" class="code-container">
@@ -28,20 +19,20 @@
 </template>
 
 <script>
-import languages from "./languages";
 import genderGroups from "./genders";
 import CopyButton from "./components/CopyButton.vue";
+import GenderSelect from "./components/GenderSelect.vue";
+import LanguageSelect from "./components/LanguageSelect.vue";
 import VCard from "./components/VCard.vue";
+import VTitle from "./components/VTitle.vue";
 
 const initialGroup = genderGroups.find(x => x.name === "facebook");
 
 export default {
-  components: { CopyButton, VCard },
+  components: { CopyButton, GenderSelect, LanguageSelect, VCard, VTitle },
   name: "App",
   data() {
     return {
-      languages,
-      genderGroups,
       selectedLanguage: null,
       selectedGroup: initialGroup,
     };
@@ -74,12 +65,6 @@ body {
 .container {
   width: min(600px, 95%);
   margin: auto;
-}
-
-.title {
-  text-align: center;
-  font-weight: 500;
-  margin: 2rem 0;
 }
 
 .code-container {
