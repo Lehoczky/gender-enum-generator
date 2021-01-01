@@ -13,7 +13,7 @@ export default [
     },
     generateMember(gender) {
       return `${gender.toUpperCase()} = "${gender}"`;
-    }
+    },
   },
   {
     name: "TypeScript",
@@ -26,6 +26,6 @@ export default [
     },
     generateMember(gender) {
       return `${gender.toUpperCase()} = "${gender}",`;
-    }
-  }
+    },
+  },
 ];

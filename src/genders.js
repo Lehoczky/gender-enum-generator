@@ -1,7 +1,7 @@
 export default [
   {
     name: "ignorant",
-    genders: ["Man", "Woman"]
+    genders: ["Man", "Woman"],
   },
   {
     name: "facebook",
@@ -29,8 +29,8 @@ export default [
       "Transmasculine",
       "Transsexual",
       "TwoSpirit",
-      "Other"
-    ]
+      "Other",
+    ],
   },
   {
     name: "extrawoke",
@@ -386,7 +386,7 @@ export default [
       "XGender",
       "Xirl",
       "Xoy",
-      "Xumgender"
-    ]
-  }
+      "Xumgender",
+    ],
+  },
 ];
