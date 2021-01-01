@@ -1,0 +1,35 @@
+.v-select:not(:last-child) {
+  margin-bottom: 0.5rem;
+}
+
+.v-select .vs__search::placeholder,
+.v-select .vs__dropdown-toggle,
+.v-select .vs__dropdown-menu {
+  background: #2e323b;
+  border: none;
+  text-transform: lowercase;
+  font-variant: small-caps;
+}
+
+.v-select .vs__dropdown-menu {
+  background: #2e323b;
+}
+
+.v-select .vs__selected,
+.v-select .vs__dropdown-option,
+.v-select .vs__search::placeholder {
+  color: #cbcac8;
+}
+
+.v-select.vs--single.vs--open .vs__selected {
+  opacity: 0.8;
+}
+
+.v-select .vs__dropdown-option--highlight {
+  background: #383e4a;
+}
+
+.v-select .vs__clear,
+.v-select .vs__open-indicator {
+  fill: #cbcac8;
+}

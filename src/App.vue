@@ -3,22 +3,21 @@
     <h1 class="title">Gender Enum Generator</h1>
 
     <div class="card">
-      <select v-model="selectedLanguage">
-        <option :value="null" disabled hidden>Select a language...</option>
-        <option
-          v-for="language in languages"
-          :key="language.name"
-          :value="language"
-        >
-          {{ language.name }}
-        </option>
-      </select>
+      <v-select
+        v-model="selectedLanguage"
+        :options="languages"
+        :clearable="false"
+        label="name"
+        placeholder="Select a language..."
+      ></v-select>
 
-      <select v-if="selectedLanguage" v-model="selectedGroupName">
-        <option v-for="group in genderGroups" :key="group.name">
-          {{ group.name }}
-        </option>
-      </select>
+      <v-select
+        v-if="selectedLanguage"
+        v-model="selectedGroup"
+        :options="genderGroups"
+        :clearable="false"
+        label="name"
+      ></v-select>
     </div>
 
     <div v-if="selectedLanguage" class="card">
@@ -31,6 +30,8 @@
 import languages from "./languages";
 import genderGroups from "./genders";
 
+const initialGroup = genderGroups.find(x => x.name === "facebook");
+
 export default {
   name: "App",
   data() {
@@ -38,16 +39,13 @@ export default {
       languages,
       genderGroups,
       selectedLanguage: null,
-      selectedGroupName: "facebook",
+      selectedGroup: initialGroup,
     };
   },
   computed: {
-    gendersForSelected() {
-      return genderGroups.find(g => g.name === this.selectedGroupName).genders;
-    },
     code() {
       return this.selectedLanguage
-        ? this.selectedLanguage.generateCode(this.gendersForSelected)
+        ? this.selectedLanguage.generateCode(this.selectedGroup.genders)
         : null;
     },
   },
@@ -56,6 +54,7 @@ export default {
 
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
+@import url("./assets/select-theme.css");
 
 * {
   margin: 0;
@@ -68,7 +67,7 @@ body {
 }
 
 .container {
-  width: min(640px, 95%);
+  width: min(600px, 95%);
   margin: auto;
 }
 
