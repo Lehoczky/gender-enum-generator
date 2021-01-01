@@ -133,7 +133,7 @@ export default [
       "Deagirl",
       "Deliciagender",
       "Delphigender",
-      "Demifluid/flux",
+      "Demifluid",
       "Demigender",
       "Digigender",
       "Dilutogender",
