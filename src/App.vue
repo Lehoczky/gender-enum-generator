@@ -2,7 +2,7 @@
   <div class="container" id="app">
     <h1 class="title">Gender Enum Generator</h1>
 
-    <div class="card">
+    <v-card>
       <v-select
         v-model="selectedLanguage"
         :options="languages"
@@ -18,12 +18,12 @@
         :clearable="false"
         label="name"
       ></v-select>
-    </div>
+    </v-card>
 
-    <div v-if="selectedLanguage" class="card code-container">
+    <v-card v-if="selectedLanguage" class="code-container">
       <highlightjs :language="selectedLanguage.name" :code="code" />
       <copy-button class="copy-btn" :text="code"></copy-button>
-    </div>
+    </v-card>
   </div>
 </template>
 
@@ -31,11 +31,12 @@
 import languages from "./languages";
 import genderGroups from "./genders";
 import CopyButton from "./components/CopyButton.vue";
+import VCard from "./components/VCard.vue";
 
 const initialGroup = genderGroups.find(x => x.name === "facebook");
 
 export default {
-  components: { CopyButton },
+  components: { CopyButton, VCard },
   name: "App",
   data() {
     return {
@@ -79,14 +80,6 @@ body {
   text-align: center;
   font-weight: 500;
   margin: 2rem 0;
-}
-
-.card {
-  background: #282c34;
-  box-shadow: 0px 0px 3px 0px black;
-  border-radius: 2px;
-  padding: 0.5rem;
-  margin-bottom: 1rem;
 }
 
 .code-container {
