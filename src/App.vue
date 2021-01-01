@@ -20,8 +20,9 @@
       ></v-select>
     </div>
 
-    <div v-if="selectedLanguage" class="card">
+    <div v-if="selectedLanguage" class="card code-container">
       <highlightjs :language="selectedLanguage.name" :code="code" />
+      <copy-button class="copy-btn" :text="code"></copy-button>
     </div>
   </div>
 </template>
@@ -29,10 +30,12 @@
 <script>
 import languages from "./languages";
 import genderGroups from "./genders";
+import CopyButton from "./components/CopyButton.vue";
 
 const initialGroup = genderGroups.find(x => x.name === "facebook");
 
 export default {
+  components: { CopyButton },
   name: "App",
   data() {
     return {
@@ -83,5 +86,15 @@ body {
   border-radius: 2px;
   padding: 0.5rem;
   margin-bottom: 1rem;
+}
+
+.code-container {
+  position: relative;
+}
+
+.copy-btn {
+  position: absolute;
+  top: 0.85rem;
+  right: 0.85rem;
 }
 </style>
