@@ -5,10 +5,10 @@ export default [
     name: "Python",
     generateCode(genders) {
       return codeBlock`
-      from enum import Enum
+        from enum import Enum
 
-      class Gender(Enum):
-          ${genders.map(this.generateMember).join("\n")}
+        class Gender(Enum):
+            ${genders.map(this.generateMember).join("\n")}
       `;
     },
     generateMember(gender) {
@@ -19,13 +19,24 @@ export default [
     name: "TypeScript",
     generateCode(genders) {
       return codeBlock`
-      enum Gender {
-        ${genders.map(this.generateMember).join("\n")}
-      }
-    `;
+        enum Gender {
+          ${genders.map(this.generateMember).join("\n")}
+        }
+      `;
     },
     generateMember(gender) {
       return `${gender.toUpperCase()} = "${gender}",`;
+    },
+  },
+  {
+    name: "C#",
+    generateCode(genders) {
+      return codeBlock`
+        enum Gender
+        {
+            ${genders.join(",\n")}
+        }
+      `;
     },
   },
 ];
