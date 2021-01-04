@@ -39,4 +39,14 @@ export default [
       `;
     },
   },
+  {
+    name: "Java",
+    generateCode(genders) {
+      return codeBlock`
+        enum Gender {
+            ${genders.map(x => x.toUpperCase()).join(",\n")}
+        }
+      `;
+    },
+  },
 ];
