@@ -12,6 +12,7 @@ export default {};
 .title {
   text-align: center;
   font-weight: 500;
+  font-size: 2.2rem;
   margin: 2rem 0;
 }
 </style>

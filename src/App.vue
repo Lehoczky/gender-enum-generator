@@ -56,15 +56,22 @@ export default {
   margin: 0;
 }
 
-body {
+html {
   background: #21252b;
   color: #cbcac8;
   font-family: "Roboto", sans-serif;
+  font-size: 16px;
 }
 
 .container {
-  width: min(600px, 95%);
+  width: 95%;
   margin: auto;
+}
+
+@media screen and (min-width: 580px) {
+  .container {
+    width: min(85%, 750px);
+  }
 }
 
 .code-container {
