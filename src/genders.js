@@ -1,10 +1,10 @@
 export default [
   {
-    name: "ignorant",
+    name: "Ignorant",
     genders: ["Man", "Woman"],
   },
   {
-    name: "facebook",
+    name: "Used by Facebook",
     genders: [
       "Man",
       "Woman",
@@ -33,7 +33,7 @@ export default [
     ],
   },
   {
-    name: "extrawoke",
+    name: "Extrawoke",
     genders: [
       "Man",
       "Woman",

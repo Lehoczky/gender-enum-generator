@@ -7,11 +7,6 @@
 .v-select .vs__dropdown-menu {
   background: #2e323b;
   border: none;
-  text-transform: capitalize;
-}
-
-.v-select .vs__dropdown-menu {
-  background: #2e323b;
 }
 
 .v-select .vs__selected,

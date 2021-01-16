@@ -2,13 +2,16 @@
   <div class="container" id="app">
     <v-title>Gender Enum Generator</v-title>
 
-    <v-card>
-      <language-select v-model="selectedLanguage"> </language-select>
+    <v-card class="form-container">
+      <div class="row">
+        <label>Language:</label>
+        <language-select v-model="selectedLanguage"></language-select>
+      </div>
 
-      <gender-select
-        v-if="selectedLanguage"
-        v-model="selectedGroup"
-      ></gender-select>
+      <div v-if="selectedLanguage" class="row">
+        <label>Genders:</label>
+        <gender-select v-model="selectedGroup"></gender-select>
+      </div>
     </v-card>
 
     <v-card v-if="selectedLanguage" class="code-container">
@@ -26,7 +29,7 @@ import LanguageSelect from "./components/LanguageSelect.vue";
 import VCard from "./components/VCard.vue";
 import VTitle from "./components/VTitle.vue";
 
-const initialGroup = genderGroups.find(x => x.name === "facebook");
+const initialGroup = genderGroups.find(x => x.name === "Used by Facebook");
 
 export default {
   components: { CopyButton, GenderSelect, LanguageSelect, VCard, VTitle },
@@ -70,8 +73,27 @@ html {
 
 @media screen and (min-width: 580px) {
   .container {
-    width: min(85%, 750px);
+    width: min(85%, 700px);
   }
+}
+
+.form-container .row {
+  display: flex;
+  align-items: center;
+}
+
+.form-container .row:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.form-container .row .v-select {
+  flex: 1;
+}
+
+.form-container label {
+  width: 75px;
+  text-align: end;
+  padding-right: 10px;
 }
 
 .code-container {
