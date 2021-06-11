@@ -5,18 +5,18 @@
     <v-card class="form-container">
       <div class="row">
         <label>Language:</label>
-        <language-select v-model="selectedLanguage"></language-select>
+        <language-select v-model="selectedLanguage" />
       </div>
 
       <div v-if="selectedLanguage" class="row">
         <label>Genders:</label>
-        <gender-select v-model="selectedGroup"></gender-select>
+        <gender-select v-model="selectedGroup" />
       </div>
     </v-card>
 
     <v-card v-if="selectedLanguage" class="code-container">
       <highlightjs :language="selectedLanguage.name" :code="code" />
-      <copy-button class="copy-btn" :text="code"></copy-button>
+      <copy-button class="copy-btn" />
     </v-card>
   </div>
 </template>

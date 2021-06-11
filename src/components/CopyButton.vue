@@ -20,9 +20,6 @@
 import tippy from "tippy.js";
 
 export default {
-  props: {
-    text: String,
-  },
   data() {
     return {
       tooltip: null,
