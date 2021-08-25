@@ -1,13 +1,13 @@
-import Vue from "vue";
-import App from "./App.vue";
-import "./plugins/clipboard";
-import "./plugins/highlight";
-import "./plugins/vSelect";
+import Vue from "vue"
+import App from "./App.vue"
+import "./plugins/clipboard"
+import "./plugins/highlight"
+import "./plugins/vSelect"
 
-Vue.config.productionTip = false;
+Vue.config.productionTip = false
 
 new Vue({
   render(h) {
-    return h(App);
+    return h(App)
   },
-}).$mount("#app");
+}).$mount("#app")

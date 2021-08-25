@@ -389,4 +389,4 @@ export default [
       "Xumgender",
     ],
   },
-];
+]

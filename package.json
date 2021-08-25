@@ -6,6 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "eslint src/ --ext .js,.vue --max-warnings 0",
+    "lint:fix": "eslint src/ --ext .js,.vue --fix",
     "styles:check": "stylelint \"src/**/*.css\"",
     "styles:fix": "stylelint \"src/**/*.css\" --fix",
     "format:check": "prettier src/** --check",

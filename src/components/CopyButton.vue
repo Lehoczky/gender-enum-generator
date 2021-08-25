@@ -17,26 +17,26 @@
 </template>
 
 <script>
-import tippy from "tippy.js";
+import tippy from "tippy.js"
 
 export default {
   data() {
     return {
       tooltip: null,
-    };
+    }
   },
   mounted() {
-    this.tooltip = this.initializeTooltip();
+    this.tooltip = this.initializeTooltip()
   },
   methods: {
     async doCopy() {
       try {
-        await this.$copyText(this.text);
-        this.tooltip.setContent("Copied!");
+        await this.$copyText(this.text)
+        this.tooltip.setContent("Copied!")
       } catch {
-        this.tooltip.setContent("Failed to copy!");
+        this.tooltip.setContent("Failed to copy!")
       } finally {
-        this.tooltip.show();
+        this.tooltip.show()
       }
     },
     initializeTooltip() {
@@ -46,13 +46,13 @@ export default {
         placement: "bottom",
         onShow(instance) {
           setTimeout(() => {
-            instance.hide();
-          }, 500);
+            instance.hide()
+          }, 500)
         },
-      });
+      })
     },
   },
-};
+}
 </script>
 
 <style scoped>

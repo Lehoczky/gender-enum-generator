@@ -1,4 +1,4 @@
-import { codeBlock } from "common-tags";
+import { codeBlock } from "common-tags"
 
 export default [
   {
@@ -9,10 +9,10 @@ export default [
 
         class Gender(Enum):
             ${genders.map(this.generateMember).join("\n")}
-      `;
+      `
     },
     generateMember(gender) {
-      return `${gender.toUpperCase()} = "${gender}"`;
+      return `${gender.toUpperCase()} = "${gender}"`
     },
   },
   {
@@ -22,10 +22,10 @@ export default [
         enum Gender {
           ${genders.map(this.generateMember).join("\n")}
         }
-      `;
+      `
     },
     generateMember(gender) {
-      return `${gender.toUpperCase()} = "${gender}",`;
+      return `${gender.toUpperCase()} = "${gender}",`
     },
   },
   {
@@ -36,7 +36,7 @@ export default [
         {
             ${genders.join(",\n")}
         }
-      `;
+      `
     },
   },
   {
@@ -46,7 +46,7 @@ export default [
         enum Gender {
             ${genders.map(x => x.toUpperCase()).join(",\n")}
         }
-      `;
+      `
     },
   },
-];
+]

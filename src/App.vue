@@ -1,5 +1,5 @@
 <template>
-  <div class="container" id="app">
+  <div class="container">
     <v-title>Gender Enum Generator</v-title>
 
     <v-card class="form-container">
@@ -22,32 +22,32 @@
 </template>
 
 <script>
-import genderGroups from "./genders";
-import CopyButton from "./components/CopyButton.vue";
-import GenderSelect from "./components/GenderSelect.vue";
-import LanguageSelect from "./components/LanguageSelect.vue";
-import VCard from "./components/VCard.vue";
-import VTitle from "./components/VTitle.vue";
+import genderGroups from "./genders"
+import CopyButton from "./components/CopyButton.vue"
+import GenderSelect from "./components/GenderSelect.vue"
+import LanguageSelect from "./components/LanguageSelect.vue"
+import VCard from "./components/VCard.vue"
+import VTitle from "./components/VTitle.vue"
 
-const initialGroup = genderGroups.find(x => x.name === "Used by Facebook");
+const initialGroup = genderGroups.find(x => x.name === "Used by Facebook")
 
 export default {
-  components: { CopyButton, GenderSelect, LanguageSelect, VCard, VTitle },
   name: "App",
+  components: { CopyButton, GenderSelect, LanguageSelect, VCard, VTitle },
   data() {
     return {
       selectedLanguage: null,
       selectedGroup: initialGroup,
-    };
+    }
   },
   computed: {
     code() {
       return this.selectedLanguage
         ? this.selectedLanguage.generateCode(this.selectedGroup.genders)
-        : null;
+        : null
     },
   },
-};
+}
 </script>
 
 <style>
