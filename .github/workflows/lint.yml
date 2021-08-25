@@ -22,4 +22,10 @@ jobs:
         run: npm install --only=dev
 
       - name: Run Prettier
-        run: npx prettier . --check --ignore-path=.gitignore
+        run: npm run format:check
+
+      - name: Run Stylelint
+        run: npm run styles:check
+
+      - name: Run ESLint
+        run: npm run lint

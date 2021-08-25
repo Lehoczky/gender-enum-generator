@@ -9,8 +9,8 @@
     "lint:fix": "eslint src/ --ext .js,.vue --fix",
     "styles:check": "stylelint \"src/**/*.css\"",
     "styles:fix": "stylelint \"src/**/*.css\" --fix",
-    "format:check": "prettier src/** --check",
-    "format:fix": "prettier src/** --write"
+    "format:check": "prettier . --check --ignore-path=.gitignore",
+    "format:fix": "prettier . --write --ignore-path=.gitignore"
   },
   "dependencies": {
     "common-tags": "^1.8.0",
