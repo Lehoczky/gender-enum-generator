@@ -1,0 +1,7 @@
+{
+  "parser": "vue-eslint-parser",
+  "extends": ["eslint:recommended", "plugin:vue/recommended", "prettier"],
+  "rules": {
+    "vue/html-self-closing": ["warn", { "html": { "void": "always" } }]
+  }
+}
