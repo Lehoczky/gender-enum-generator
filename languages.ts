@@ -1,6 +1,12 @@
 import { codeBlock } from "common-tags"
 
-export default [
+export interface Language {
+  name: string
+  generateCode(genders: string[]): string
+  [key: string]: any
+}
+
+export const languages: Language[] = [
   {
     name: "Python",
     generateCode(genders) {
@@ -11,7 +17,7 @@ export default [
             ${genders.map(this.generateMember).join("\n")}
       `
     },
-    generateMember(gender) {
+    generateMember(gender: string) {
       return `${gender.toUpperCase()} = "${gender}"`
     },
   },
@@ -24,7 +30,7 @@ export default [
         }
       `
     },
-    generateMember(gender) {
+    generateMember(gender: string) {
       return `${gender.toUpperCase()} = "${gender}",`
     },
   },
@@ -44,7 +50,7 @@ export default [
     generateCode(genders) {
       return codeBlock`
         enum Gender {
-            ${genders.map(x => x.toUpperCase()).join(",\n")}
+            ${genders.map((x) => x.toUpperCase()).join(",\n")}
         }
       `
     },

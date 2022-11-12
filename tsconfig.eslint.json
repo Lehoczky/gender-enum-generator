@@ -1,0 +1,11 @@
+{
+  "include": [
+    "components/**/*.vue",
+    "composables/**/*.ts",
+    "utils/**/*.ts",
+    "pages/**/*.vue",
+    "plugins/**/*.ts",
+    "app.vue",
+    "./*.ts"
+  ]
+}

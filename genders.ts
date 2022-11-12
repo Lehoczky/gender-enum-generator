@@ -1,4 +1,9 @@
-export default [
+export interface GenderGroup {
+  name: string
+  genders: string[]
+}
+
+export const genderGroups: GenderGroup[] = [
   {
     name: "Ignorant",
     genders: ["Man", "Woman"],

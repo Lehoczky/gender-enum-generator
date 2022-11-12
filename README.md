@@ -23,4 +23,4 @@ Works great if you don't know to program, but want to be ~~annoying~~ progressiv
 
 ## Contribution
 
-Pull requests with new languages and gender groups are welcome! Be sure to consult with a gender stuides expert before though.
+Pull requests with new languages and gender groups are welcome! Be sure to consult with a gender studies expert before though.
