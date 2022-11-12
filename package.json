@@ -6,7 +6,7 @@
     "preview": "nuxt preview",
     "lint:prettier": "prettier . --check --ignore-unknown",
     "lint:eslint": "eslint . --ext=.js,.ts,.vue,.yml,.yaml --max-warnings 0",
-    "lint:stylelint": "stylelint \"**/*.{css,vue}",
+    "lint:stylelint": "stylelint \"**/*.{css,vue}\"",
     "lint": "npm run lint:prettier && npm run lint:eslint && npm run lint:stylelint",
     "postinstall": "nuxt prepare"
   },
