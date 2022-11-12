@@ -84,7 +84,7 @@ const { copy, copied } = useClipboard({ source: code, copiedDuring: 1000 })
 </script>
 
 <style>
-@import "https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap";
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap");
 
 .row {
   @apply flex items-center;
