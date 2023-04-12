@@ -12,6 +12,6 @@
   "css.validate": false,
   "less.validate": false,
   "scss.validate": false,
-  "stylelint.validate": ["css", "vue"],
+  "stylelint.validate": ["css", "vue", "postcss"],
   "cSpell.words": ["headlessui", "heroicons", "highlightjs", "Nuxt", "vueuse"]
 }

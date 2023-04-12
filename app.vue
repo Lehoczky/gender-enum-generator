@@ -31,7 +31,7 @@
       <div class="relative">
         <highlightjs :language="selectedLanguage" :code="code" />
 
-        <CopyButton class="absolute top-0 right-0" @click="copy()">
+        <CopyButton class="absolute right-0 top-0" @click="copy()">
           <Tooltip :show="copied">Copied</Tooltip>
         </CopyButton>
       </div>
@@ -42,29 +42,6 @@
 <script setup lang="ts">
 import { genderGroups } from "./genders"
 import { languages } from "./languages"
-
-useHead({
-  htmlAttrs: {
-    lang: "en-US",
-  },
-  title: "Gender Enum Generator",
-  meta: [
-    {
-      name: "description",
-      content:
-        "Create ENUMs for every gender in different programming languages",
-    },
-  ],
-  link: [
-    {
-      rel: "icon",
-      href: "/gender-enum-generator/favicon.ico",
-    },
-  ],
-  bodyAttrs: {
-    class: "bg-base-700 font-roboto text-base-100",
-  },
-})
 
 const selectedLanguage = ref<string>()
 const selectedGroup = ref("Used by Facebook")

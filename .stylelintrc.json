@@ -2,7 +2,7 @@
   "extends": [
     "stylelint-config-standard",
     "stylelint-config-recommended-vue",
-    "stylelint-config-tailwindcss",
-    "stylelint-config-prettier"
-  ]
+    "stylelint-config-tailwindcss"
+  ],
+  "ignoreFiles": [".output/**", "dist/**"]
 }
